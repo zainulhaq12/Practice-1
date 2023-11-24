@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singin</title>
+    <style>
+        form {
+            gap: 7px;
+            width: 50%;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            padding: 10px;
+            margin: 10% 25%;
+        }
+
+        input {
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            box-shadow: black 5px 5px;
+
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            margin: 10px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1>Local Storage</h1>
+
+        <input style="margin: 1%;" type="text" id="name" required placeholder="Enter your name">
+        <input style="margin: 1%;" type="email" id="email" required placeholder="Enter your email">
+        <input style="margin: 1%;" type="password" id="password" required placeholder="Enter your password">
+        <input style="margin: 1%;" type="cpassword" id="cpassword" required placeholder="Enter your comfirm password">
+        <br>
+        <button type="submit" onclick="register()">Register</button>
+        <button type="submit" onclick="Clear()">Clear</button>
+    </form>
+    <script>
+        function register() {
+            let naam= document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let cpass = document.getElementById("cpassword").value;
+
+            if (naam != "" && email != "" && password != "" && cpass == password) {
+                if ("localStorage" in window) {
+                    localStorage.setItem("username", naam);
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("password", cpass);
+                    alert("Login Succesfull");
+                }
+                else {
+                    alert("Error");
+                }
+            }
+                else {
+                    alert("Wrong Information");
+                }
+            }
+            function Clear() {
+                localStorage.clear;
+            }
+        
+    </script>
+</body>
+
+</html>
